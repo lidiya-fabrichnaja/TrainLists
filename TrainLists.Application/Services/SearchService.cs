@@ -38,6 +38,9 @@ namespace TrainLists.Application.Services
 
         public async Task<AppResponce<ReportModel>> Search(int trainNumber)
         {
+            if(!await _ctx.TrainActivities.AnyAsync(x=>x.TrainNumber == trainNumber)) 
+                return new AppResponce<ReportModel>(new AppError("Не найдено"));
+
             var trains = await _ctx.TrainActivities
                             .AsNoTracking()
                             .Include(x=>x.Route)
@@ -47,9 +50,6 @@ namespace TrainLists.Application.Services
                             .OrderByDescending(x=>x.LastOperationDate)
                             .ToListAsync();
                             ;
-
-            if(!trains.Any()) 
-                return new AppResponce<ReportModel>(new AppError("Не найдено"));
 
             var train = trains[0];
 
