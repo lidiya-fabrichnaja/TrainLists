@@ -35,9 +35,13 @@ curl -k 'GET' \
 5. **Загрузите данные в бд используя соответсвующий контроллер api**
 
 ## Описание котроллеров
-•	    [POST] /api/User/Login - Авторизация пользователя
-•	    [POST] /api/ExchangeData/ImportXml - загрузка данных в БД из xml файла в формате заказчика
-•	    [GET]  /api/Report/ExportXlsx - выгрузка отчета в формате xlsx
-•	    [GET]  /api/Report/ExportJson - выгрузка отчета в формате json
+•	POST /api/User/Login - Авторизация пользователя
+
+•	POST /api/ExchangeData/ImportXml - загрузка данных в БД из xml файла в формате заказчика
+
+•	GET  /api/Report/ExportXlsx - выгрузка отчета в формате xlsx
+
+•	GET  /api/Report/ExportJson - выгрузка отчета в формате json
+
 
 В данном проекте используется Swagger https://localhost:7092/index.html.
